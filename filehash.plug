@@ -1,0 +1,9 @@
+[Core]
+Name = Filehash
+Module = filehash
+
+[Documentation]
+Description = You know, for hashes.
+
+[Python]
+Version = 3
