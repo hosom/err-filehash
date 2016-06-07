@@ -5,9 +5,8 @@ from errbot import BotPlugin, botcmd, cmdfilter
 
 _MHR_API = 'malware.hash.cymru.com'
 
-def mhr(hash):
+def mhr(ahash):
 	'''Lookup a file in the malware hash registry.'''
-		ahash = args
 		try:
 			answers = dns.resolver.query('%s.%s' % (ahash, _MHR_API), 'TXT')
 		except dns.resolver.NXDOMAIN:
