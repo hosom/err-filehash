@@ -15,7 +15,11 @@ class HashMatch(BotPlugin):
 	def callback_message(self, msg):
 		'''Check the messages if they contain a hash.'''
 
-		user = msg.frm.username
+		user = "@%s"  % (msg.frm.username)
+
+		if user == self.bot_identifier:
+			return
+
 		self.send(msg.to, "@%s" % (msg.frm.username))
 		self.send(msg.to, self.bot_identifier)
 		#if self.bot_identifier == user:
