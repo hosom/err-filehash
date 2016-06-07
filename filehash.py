@@ -46,6 +46,6 @@ class HashMatch(BotPlugin):
 		# Match for hash patterns inside of the message to determine if
 		# lookups should be performed.
 		for match in self.pattern.finditer(msg.body):
-			self.send(msg.to, 'Seems like a match: %s' % (match.group(0)))
+			self.send(msg.to, 'Found a file hash: %s' % (match.group(0)))
 			self.send(msg.to, mhr(match.group(0)))
 		return
