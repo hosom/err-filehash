@@ -7,21 +7,21 @@ _MHR_API = 'malware.hash.cymru.com'
 
 def mhr(ahash):
 	'''Lookup a file in the malware hash registry.'''
-		try:
-			answers = dns.resolver.query('%s.%s' % (ahash, _MHR_API), 'TXT')
-		except dns.resolver.NXDOMAIN:
-			return 'File not found in MHR.'
+	try:
+		answers = dns.resolver.query('%s.%s' % (ahash, _MHR_API), 'TXT')
+	except dns.resolver.NXDOMAIN:
+		return 'File not found in MHR.'
 
-		answer = answers[0].to_text().strip('"')
-		answer = MHRReply(*[field for field in answer.split(' ')])
+	answer = answers[0].to_text().strip('"')
+	answer = MHRReply(*[field for field in answer.split(' ')])
 
-		ts = datetime.datetime.fromtimestamp(int(answer.ts))
+	ts = datetime.datetime.fromtimestamp(int(answer.ts))
 
-		return 'Malicious file %s last seen %s with a detection rate of %s' % (
-										args,
-										ts,
-										answer.detection_rate
-										)
+	return 'Malicious file %s last seen %s with a detection rate of %s' % (
+									args,
+									ts,
+									answer.detection_rate
+									)
 
 class HashMatch(BotPlugin):
 	'''Plugin that finds file hashes inside of messages and then performs
