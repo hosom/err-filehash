@@ -16,4 +16,4 @@ class HashMatch(BotPlugin):
 		'''Check the messages if they contain a hash.'''
 
 		for match in self.pattern.finditer(msg):
-			yield match.group(0)
+			return match.group(0)
