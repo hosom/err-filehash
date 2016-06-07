@@ -17,6 +17,5 @@ class HashMatch(BotPlugin):
 
 		for match in self.pattern.finditer(msg.body):
 			self.send(msg.to, match.group(0))
-			self.send(msg.to, str(msg))
 			self.log('Seems like a match: %s' % (match.group(0)))
 		return
