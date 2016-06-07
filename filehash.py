@@ -17,7 +17,7 @@ class HashMatch(BotPlugin):
 
 		user = "@%s"  % (msg.frm.username)
 
-		if user == self.bot_identifier:
+		if user == str(self.bot_identifier):
 			return
 
 		self.send(msg.to, "@%s" % (msg.frm.username))
