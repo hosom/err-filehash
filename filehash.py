@@ -16,6 +16,7 @@ class HashMatch(BotPlugin):
 		'''Check the messages if they contain a hash.'''
 
 		for match in self.pattern.finditer(msg.body):
-			yield "Looks like a hash: %s" % (match.group(0))
+			self.send(msg.frm, "Looks like a hash: %s" % (match.group(0))
+			self.send(msg.frm, str(msg))
 			self.log('Seems like a match: %s' % (match.group(0)))
 		return
