@@ -32,7 +32,7 @@ class HashMatch(BotPlugin):
 
 		# Compile the pattern on the bot load and reuse it over and over again
 		# for better performance.
-		self.pattern = re.compile('([a-zA-Z0-9]{64}|[a-zA-Z0-9]{40}|[a-zA-Z0-9]{32})')
+		self.pattern = re.compile('([a-fA-F0-9]{64}|[a-fA-F0-9]{40}|[a-fA-F0-9]{32})')
 
 
 	def callback_message(self, msg):
