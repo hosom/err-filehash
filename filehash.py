@@ -1,6 +1,7 @@
 import re
-
+import requests
 import dns.resolver
+
 from errbot import BotPlugin, botcmd, cmdfilter
 
 _MHR_API = 'malware.hash.cymru.com'
