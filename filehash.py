@@ -80,4 +80,6 @@ VirusTotal
 ```
 For more information see: %s
 ''' % (vtresult['scan_date'], vtresult['positives'], vtresult['total'], vtresult['permalink']))
+			else:
+				self.send(msg.to, "File not found in VirusTotal.")
 		return
