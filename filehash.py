@@ -1,6 +1,7 @@
 import re
 import requests
 import dns.resolver
+import dns.name
 
 from errbot import BotPlugin, botcmd, cmdfilter
 
@@ -13,6 +14,8 @@ def mhr(ahash):
 		answers = dns.resolver.query('%s.%s' % (ahash, _MHR_API), 'TXT')
 	except dns.resolver.NXDOMAIN:
 		return 'File not found in MHR.'
+	except dns.name.LabelTooLong:
+		return 'Cannot process SHA256 hashes for the MHR at this time.'
 
 	answer = answers[0].to_text().strip('"')
 	answer = MHRReply(*[field for field in answer.split(' ')])
