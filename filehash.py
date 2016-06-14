@@ -64,6 +64,9 @@ class HashMatch(BotPlugin):
 		if user == str(self.bot_identifier):
 			return
 
+		if msg.body.startswith("!"):
+			return
+
 		# Match for hash patterns inside of the message to determine if
 		# lookups should be performed.
 		for match in self.pattern.finditer(msg.body):
